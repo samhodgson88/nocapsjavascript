@@ -1,15 +1,15 @@
-* {
-    background-color: brown;
-
+#bar {  
+    background-color:#ADFF2F;
 }
 #quizarea {
     background-color:blueviolet;
     box-sizing: border-box;
-    width: 85%;
-    height: 65vh;
-    max-height: 450px;
+    width: 90%;
+    height: 120vh;
+    max-height: 900px;
     max-width: 830px;
     margin-left: auto;
     margin-right: auto;
     padding: 1%; 
+
 }
