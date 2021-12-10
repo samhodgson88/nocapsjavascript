@@ -1,8 +1,15 @@
+#Start, h3 {
+position: absolute;
+padding-top: 250px;
+width: 90%;
+height: 60vh;
+margin: 0 auto;
+}
 #bar {  
     background-color:#ADFF2F;
 }
 #quizarea {
-    background-color:blueviolet;
+    background-color:red;
     box-sizing: border-box;
     width: 90%;
     height: 120vh;
@@ -11,5 +18,39 @@
     margin-left: auto;
     margin-right: auto;
     padding: 1%; 
+    /* z-index:2; */
 
 }
+
+#multichoice{
+    background-color:purple;
+    box-sizing: border-box;
+    width: 90%;
+    height: 50vh;
+    max-height: 350px;
+    max-width: 830px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%; 
+    /* z-index:2;   */
+}
+
+.choices {
+    z-index: 1000 !important;
+    height: 100px;
+    width: 100px;
+    background-color: #fff;
+}
+
+
+@media screen and (max-width: 1200px) {
+   #quizarea {
+       width:65%;
+       height: 1200px;
+       margin: 0 auto;
+   }
+   #multichoice
+
+}
+
+
