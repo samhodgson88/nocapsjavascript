@@ -49,7 +49,7 @@ let questions = [{
         choice2: '80,000',
         choice3: '85,000',
         choice4: '90,000',
-        Answer: '90,000',
+        answer: '90,000',
     },
     {
         question: 'who won the 2019 African cup of nations?',
@@ -57,7 +57,7 @@ let questions = [{
         choice2: 'Cameroon',
         choice3: 'Nigeria',
         choice4: 'Egypt',
-        Answer: 'Algeria',
+        answer: 'Algeria',
     },
     {
         question: 'who won the 2021 copa america?',
@@ -65,7 +65,7 @@ let questions = [{
         choice2: 'Argentina',
         choice3: 'Brazil',
         choice4: 'Uruguay',
-        Answer: 'Argentina',
+        answer: 'Argentina',
     },
     {
         question: 'what player has started the most premier league games?',
@@ -73,7 +73,7 @@ let questions = [{
         choice2: 'David beckham',
         choice3: 'James Milner',
         choice4: 'John Terry',
-        Answer: 'Gareth Barry',
+        answer: 'Gareth Barry',
     }
 ];
 // render question//
@@ -83,8 +83,8 @@ let score = 0;
 let count = 0;
 
 function Questionrender() {
-    let quest = questions[activequestion];
-    question.innerHTML = "<p>" + quest.question + "</p>";
+    let quest = questions[activequestion]; 
+    questions. = "<p>" + quest.question + "</p>";
     choice1.innerHTML = quest.choice1;
     choice2.innerHTML = quest.choice2;
     choice3.innerHTML = quest.choice3;
@@ -102,38 +102,47 @@ function startQuiz() {
 //answer counter //
 function progressRender() {
     for (let questIndex = 0; questIndex <= lastQuestion; questIndex++) {
-        answercount.innerHTML += "<div class='anscount' id=" + questIndex + "></div>";
+        questions.innerHTML += "<div class='anscount' id=" + questIndex + "></div>";
+    }
+} //event listener 
+const displayquestion = document.querySelectorAll(".choices")
+displayquestion.forEach(questions => questions.addEventListener("click", (event) => {
+    const question = event.target.dataset.question;
+    console.log(question) 
+}));
+
+
+function checkAnswer(answer) {
+    if (answer == questions[activequestion].correct) {
+        score++;
+        answerisCorrect();
+    } else {
+        answerisincorrect();
+    }
+    count = 0;
+    if (activequestion < lastQuestion) {
+        activequestion++;
+        activequestion();
+    } else {
+        start.addEventListener("click", startQuiz);
+        scoreRender();
     }
 }
 
-    function checkAnswer(answer){
-        if ( answer == questions[activequestion].correct) {
-            score++;
-            answerisCorrect();
-        } else {
-            answerisincorrect();
-        }
-        count = 0;
-        if (activequestion < lastQuestion) {
-            activequestion++;
-            activequestion();
-        } else {
-            scoreRender();
-        }
-    }
+//call function that next question//
 
 
-    function answerisCorrect() {
-        document.getElementById(activequestion).style.backgroundcolor = "green";
-    }
+function answerisCorrect() {
+    document.getElementById("activequestion").style.backgroundcolor = "green";
+}
 
-    function answerisincorrect() {
-        document.getElementById(activequestion).style.backgroundcolor = "Red";
-    };
+function answerisincorrect() {
+  document.getElementById("activequestion").style.backgroundcolor = "Red";
+};
 
 
 function scoreRender() {
     scoreContainer.style.display = "block";
-    let scorePercent = Math.round(100 * score / questions.length);
-    scoreContainer.innerHTML += "<p>" + scorePercent + "%</p>";
+    const scorePercent = Math.round(100 * score / questions.length);
+    scoreContainer.innerHTML += "<p>" + scorePercent + "%</p>"
 }
