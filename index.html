@@ -16,19 +16,18 @@
 </header>
 
 <div class = "container-fluid" id="quizarea">
-</div>
-<div id="start">
-  <h3> Are you ready?</h3>
+   <div id="start">
+   <h1> Are you ready?</h1>
 </div>
 <div id="quiz" style = "display : none;">
 </div>
 <div id="question"><p>Question</p>
 </div>
-<div id ="multichoice">
-    <button class = "choice" id="1" onclick="checkAnswer('1')">A</button>
-    <button class = "choice" id="2" onclick="checkAnswer('2')">B</button>
-    <button class = "choice" id="3" onclick="checkAnswer('3')">C</button>
-    <button class = "choice" id="4" onclick="checkAnswer('4')">D</button>
+<div id="multichoice">
+    <div class = "choices" id="one" onclick="checkAnswer('choice1')" data-question="1"></div>>A</div>
+    <div class = "choices"id="two" onclick="checkAnswer('choice2')" data-question="2"></div>>B</div>
+    <div class = "choices" id="three" onclick="checkAnswer('choice3')"data-question="3"></div>>C</div>
+    <div class = "choices" id="four" onclick="checkAnswer('choice4')"data-question="4">D</div>
 
 </div>
     <div id="answercount" class="count" class="countwrong">
